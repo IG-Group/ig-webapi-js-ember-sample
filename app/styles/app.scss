@@ -1,0 +1,270 @@
+@import "bootstrap";
+
+body {
+  padding-top: 20px;
+  min-width: 770px;
+}
+
+.navbar-brand {
+  padding: 15px 19px;
+  cursor: pointer;
+}
+
+.panel-login {
+  border-color: #ccc;
+  -webkit-box-shadow: 0 2px 3px 0 rgba(0,0,0,0.2);
+  -moz-box-shadow: 0 2px 3px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 2px 3px 0 rgba(0,0,0,0.2);
+}
+
+.panel-login > .panel-heading {
+  color: #00415d;
+  background-color: #fff;
+  border-color: #fff;
+  text-align: center;
+}
+
+.panel-login > .panel-heading a {
+  text-decoration: none;
+  color: #666;
+  font-weight: bold;
+  font-size: 15px;
+  -webkit-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+.panel-login > .panel-heading a.active {
+  color: #029f5b;
+  font-size: 18px;
+}
+
+.panel-login > .panel-heading hr {
+  margin-top: 10px;
+  margin-bottom: 0;
+  clear: both;
+  border: 0;
+  height: 1px;
+  background-image: -webkit-linear-gradient(left,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.15),rgba(0, 0, 0, 0));
+  background-image: -moz-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+  background-image: -ms-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+  background-image: -o-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+}
+
+.panel-login input[type="email"],
+.panel-login input[type="password"],
+.panel-login input[type="text"] {
+  height: 45px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  -webkit-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+.btn-login {
+  background-color: #59B2E0;
+  outline: none;
+  color: #fff;
+  font-size: 14px;
+  height: auto;
+  font-weight: normal;
+  padding: 14px 0;
+  text-transform: uppercase;
+  border-color: #59B2E6;
+}
+
+.inline-close {
+  background: rgba(142, 247, 91, 0.69);
+}
+
+.price {
+  word-wrap: break-word;
+  word-break: break-word;
+  text-align: right;
+}
+
+.search {
+  background: #E55D87;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #E55D87 , #5FC3E4);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #E55D87 , #5FC3E4);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+#custom-search-input {
+  margin: 10px 0 0;
+  padding: 0;
+}
+
+#custom-search-input .search-query {
+  padding-right: 3px;
+  padding-left: 3px;
+  /* IE7-8 doesn't have border-radius, so don't indent the padding */
+  margin-bottom: 0;
+  border-radius: 3px;
+}
+
+#custom-search-input .search {
+  border: 0;
+  background: none;
+  /** belows styles are working good */
+  padding: 2px 5px;
+  margin-top: 2px;
+  position: relative;
+  left: -28px;
+  /* IE7-8 doesn't have border-radius, so don't indent the padding */
+  margin-bottom: 0;
+  border-radius: 3px;
+  color: #D9230F;
+  z-index: 3;
+  outline: 0;
+}
+
+#custom-search-input .watchlists-button {
+  color: #fff;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+  margin-top: -4px;
+  /* margin-left: 10px; */
+  left: 41px;
+  position: relative;
+  z-index: 4;
+  height: 34px;
+}
+
+.jumbotron {
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
+
+.content {
+  text-align: right;
+}
+
+.fall:after {
+  font-family: "Glyphicons Halflings";
+  content: "\e130";
+  color: #D9230F;
+  position: absolute;
+  padding-left: 5px;
+}
+
+.rise:after {
+  font-family: "Glyphicons Halflings";
+  content: "\e129";
+  color: #0fd910;
+  position: absolute;
+  padding-left: 5px;
+}
+
+.rocket {
+  height: 320px;
+  float: right;
+  animation: 1.5s linear 0s slideup;
+  position: relative;
+}
+@keyframes slideup {
+  0% {
+    opacity: 0.0;
+    top: 500px;
+  }
+
+  25% {
+    opacity: 0.33;
+  }
+
+  50% {
+    opacity: 0.66;
+  }
+
+  100% {
+    opacity: 1.0;
+    top: 0;
+  }
+}
+
+.result {
+  cursor: pointer;
+}
+
+p.info {
+  margin: 0;
+}
+
+.contained {
+  padding-left: 12px;
+  border: 1px #ccc solid;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin: 0;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.input-group-spaced {
+  padding: 5px;
+}
+
+.white {
+  color: #EFECEA;
+  padding: 5px 5px 0;
+}
+
+.block {
+  display: inline-block;
+}
+
+.no-pad {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.navbar-inverse {
+  background-color: #004A55;
+  border-color: #004A55;
+}
+
+a.blue {
+  padding-top: 17px;
+  color: #EFECEA !important;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.flex-con {
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
+a.flexable {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 30%;
+  border-radius: 0 !important;
+  cursor: pointer;
+}
+
+.watchlist {
+  display: inline-block;
+  position: relative;
+  left: -78px;
+  bottom: 5px;
+}
+.watchlist_buttons {
+  height: 34px;
+}
+.pull-right > .dropdown-menu {
+    right: auto;
+    left: 0;
+}
+td {
+  font-size: 13px;
+}

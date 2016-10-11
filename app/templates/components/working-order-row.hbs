@@ -1,0 +1,21 @@
+<td>
+  {{item.marketData.instrumentName}}
+</td>
+<td>
+  {{item.marketData.expiry}}
+</td>
+<td>
+  {{item.workingOrderData.direction}} {{item.workingOrderData.orderSize}}
+</td>
+<td>
+  {{item.workingOrderData.level}}
+</td>
+<td>
+  {{item.latest}}
+</td>
+<td>
+  {{item.workingOrderData.goodTill}}
+</td>
+<td class="btn btn-primary" {{action 'delete' item.workingOrderData}}>
+  Delete
+</td>

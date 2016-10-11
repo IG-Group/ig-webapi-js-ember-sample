@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>IG Public API</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {{content-for 'head'}}
+
+    <link rel="stylesheet" href="assets/vendor.css">
+    <link rel="stylesheet" href="assets/soar-trading.css">
+
+    {{content-for 'head-footer'}}
+  </head>
+  <body>
+    {{content-for 'body'}}
+    <script pace-src="https://a.c-dn.net/b/0wNpa0.js#lightstreamer.6.1.4.min.js"></script>
+    <script pace-src="assets/vendor.js"></script>
+    <script pace-src="assets/soar-trading.js"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/mikeflynn/egg.js/master/egg.min.js"></script>
+
+    {{content-for 'body-footer'}}
+  </body>
+</html>

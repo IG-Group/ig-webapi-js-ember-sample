@@ -1,0 +1,6 @@
+{
+  "preset": "ember-suave",
+  "disallowTrailingComma": false,
+  "requireCommentsToIncludeAccess": false,
+  "requireObjectDestructuring": false
+}

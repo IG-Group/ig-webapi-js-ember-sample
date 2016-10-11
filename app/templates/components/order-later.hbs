@@ -1,0 +1,20 @@
+<div class="input-group input-group-spaced">
+  <span class="input-group-addon">Size:</span> {{input type="number" value=size class="form-control" placeholder="Please enter a size" step=0.1 min=0}}
+</div>
+<div class="input-group input-group-spaced">
+  <span class="input-group-addon">Price Level:</span> {{input type="number" value=price class="form-control" placeholder="Please enter a price" step=0.1 min=0}}
+</div>
+<div class="input-group input-group-spaced">
+  <span class="input-group-addon">Good Till:</span>
+  <select class="form-control" onchange= {{action "changeGoodTill" value="target.value"}}>
+    {{#each goodTills as |goodTillChoice|}}
+      <option value={{goodTillChoice}} selected={{eq goodTill goodTillChoice}}>{{goodTillChoice}}</option>
+    {{/each}}
+  </select>
+  {{#if showDatePicker}}
+  {{pikaday-input id="date-picker" class="form-control" format="DD/MM/YYYY hh:mm:ss" onSelection=(action 'selectDate')}}
+  {{/if}}
+</div>
+<div class="input-group input-group-spaced btn-block">
+  <button type="button" class="btn btn-success btn-block" disabled= {{isDisabled}} {{action 'workingOrder'}}>Submit</button>
+</div>

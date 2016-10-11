@@ -1,0 +1,35 @@
+<td>
+	{{item.market.instrumentName}}
+</td>
+<td>
+	{{item.market.expiry}}
+</td>
+<td>
+	{{item.position.direction}} {{item.position.dealSize}}
+</td>
+<td>
+	{{item.position.openLevel}}
+</td>
+<td>
+	{{item.latest}}
+</td>
+<td>
+	£{{item.pnl}}
+</td>
+<td>
+	{{#if isClosing}}
+	<form class="form-inline">
+		<div class="form-group">
+			{{input type="number" value=size class="form-control" placeholder="Size" step=0.1 min=0}}
+			<button type="button" class="btn btn-primary"  disabled= {{isDisabled}} {{action 'close'}}>Confirm</button>
+			<button type="button" class="btn btn-primary glyphicon glyphicon-remove" {{action 'toggleClass' item.position}}></button>
+		</div>
+	</form>
+	{{else}}
+	<form class="form-inline">
+		<div class="form-group">
+			<button type="button" class="btn btn-primary" {{action 'toggleClass' item.position}}>Close {{confirm}}</button>
+		</div>
+	</form>
+	{{/if}}
+</td>

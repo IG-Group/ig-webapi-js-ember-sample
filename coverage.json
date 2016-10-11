@@ -1,0 +1,488 @@
+{
+  "stats": {
+    "suites": 153,
+    "tests": 218,
+    "passes": 0,
+    "pending": -3,
+    "failures": 221,
+    "start": "2016-10-07T12:48:59.303Z",
+    "end": "2016-10-07T12:56:39.086Z"
+  },
+  "coverage": {
+    "total": {
+      "statementsTotal": 723,
+      "statementsCovered": 545,
+      "percentage": 75.38
+    },
+    "files": [
+      {
+        "name": "soar-trading/config/environment",
+        "statementsTotal": 8,
+        "statementsCovered": 7,
+        "percentage": 87.5
+      },
+      {
+        "name": "soar-trading/app",
+        "statementsTotal": 24,
+        "statementsCovered": 23,
+        "percentage": 95.83
+      },
+      {
+        "name": "soar-trading/initializers/app-version",
+        "statementsTotal": 2,
+        "statementsCovered": 2,
+        "percentage": 100
+      },
+      {
+        "name": "soar-trading/initializers/ember-simple-auth",
+        "statementsTotal": 7,
+        "statementsCovered": 7,
+        "percentage": 100
+      },
+      {
+        "name": "soar-trading/initializers/export-application-global",
+        "statementsTotal": 16,
+        "statementsCovered": 15,
+        "percentage": 93.75
+      },
+      {
+        "name": "soar-trading/initializers/notifications",
+        "statementsTotal": 6,
+        "statementsCovered": 6,
+        "percentage": 100
+      },
+      {
+        "name": "soar-trading/initializers/truth-helpers",
+        "statementsTotal": 16,
+        "statementsCovered": 6,
+        "percentage": 37.5
+      },
+      {
+        "name": "soar-trading/instance-initializers/ember-simple-auth",
+        "statementsTotal": 3,
+        "statementsCovered": 3,
+        "percentage": 100
+      },
+      {
+        "name": "soar-trading/helpers/logger",
+        "statementsTotal": 5,
+        "statementsCovered": 5,
+        "percentage": 100
+      },
+      {
+        "name": "soar-trading/mixins/sortable",
+        "statementsTotal": 7,
+        "statementsCovered": 6,
+        "percentage": 85.71
+      },
+      {
+        "name": "soar-trading/router",
+        "statementsTotal": 11,
+        "statementsCovered": 11,
+        "percentage": 100
+      },
+      {
+        "name": "soar-trading/routes/application",
+        "statementsTotal": 9,
+        "statementsCovered": 6,
+        "percentage": 66.67
+      },
+      {
+        "name": "soar-trading/services/session",
+        "statementsTotal": 2,
+        "statementsCovered": 2,
+        "percentage": 100
+      },
+      {
+        "name": "soar-trading/services/ls-client",
+        "statementsTotal": 18,
+        "statementsCovered": 13,
+        "percentage": 72.22
+      },
+      {
+        "name": "soar-trading/routes/404",
+        "statementsTotal": 2,
+        "statementsCovered": 2,
+        "percentage": 100
+      },
+      {
+        "name": "soar-trading/components/nav-bar",
+        "statementsTotal": 2,
+        "statementsCovered": 2,
+        "percentage": 100
+      },
+      {
+        "name": "soar-trading/components/navbar-members",
+        "statementsTotal": 4,
+        "statementsCovered": 2,
+        "percentage": 50
+      },
+      {
+        "name": "soar-trading/components/ember-notify",
+        "statementsTotal": 2,
+        "statementsCovered": 2,
+        "percentage": 100
+      },
+      {
+        "name": "soar-trading/services/notify",
+        "statementsTotal": 2,
+        "statementsCovered": 2,
+        "percentage": 100
+      },
+      {
+        "name": "soar-trading/components/members/panel-switch",
+        "statementsTotal": 2,
+        "statementsCovered": 2,
+        "percentage": 100
+      },
+      {
+        "name": "soar-trading/components/members/login-panel",
+        "statementsTotal": 15,
+        "statementsCovered": 12,
+        "percentage": 80
+      },
+      {
+        "name": "soar-trading/helpers/eq",
+        "statementsTotal": 7,
+        "statementsCovered": 5,
+        "percentage": 71.43
+      },
+      {
+        "name": "soar-trading/routes/account",
+        "statementsTotal": 23,
+        "statementsCovered": 15,
+        "percentage": 65.22
+      },
+      {
+        "name": "soar-trading/models/active-account",
+        "statementsTotal": 2,
+        "statementsCovered": 2,
+        "percentage": 100
+      },
+      {
+        "name": "soar-trading/adapters/active-account",
+        "statementsTotal": 2,
+        "statementsCovered": 2,
+        "percentage": 100
+      },
+      {
+        "name": "soar-trading/serializers/application",
+        "statementsTotal": 2,
+        "statementsCovered": 2,
+        "percentage": 100
+      },
+      {
+        "name": "soar-trading/components/heart-beat",
+        "statementsTotal": 16,
+        "statementsCovered": 10,
+        "percentage": 62.5
+      },
+      {
+        "name": "soar-trading/components/overview-list",
+        "statementsTotal": 6,
+        "statementsCovered": 4,
+        "percentage": 66.67
+      },
+      {
+        "name": "soar-trading/routes/account/search",
+        "statementsTotal": 65,
+        "statementsCovered": 48,
+        "percentage": 73.85
+      },
+      {
+        "name": "soar-trading/services/search-service",
+        "statementsTotal": 11,
+        "statementsCovered": 11,
+        "percentage": 100
+      },
+      {
+        "name": "soar-trading/services/account-service",
+        "statementsTotal": 44,
+        "statementsCovered": 39,
+        "percentage": 88.64
+      },
+      {
+        "name": "soar-trading/controllers/account/search",
+        "statementsTotal": 4,
+        "statementsCovered": 3,
+        "percentage": 75
+      },
+      {
+        "name": "soar-trading/models/search",
+        "statementsTotal": 2,
+        "statementsCovered": 2,
+        "percentage": 100
+      },
+      {
+        "name": "soar-trading/adapters/search",
+        "statementsTotal": 2,
+        "statementsCovered": 2,
+        "percentage": 100
+      },
+      {
+        "name": "soar-trading/components/search-box",
+        "statementsTotal": 19,
+        "statementsCovered": 3,
+        "percentage": 15.79
+      },
+      {
+        "name": "soar-trading/components/account-item",
+        "statementsTotal": 7,
+        "statementsCovered": 3,
+        "percentage": 42.86
+      },
+      {
+        "name": "soar-trading/components/deal-now",
+        "statementsTotal": 3,
+        "statementsCovered": 2,
+        "percentage": 66.67
+      },
+      {
+        "name": "soar-trading/components/order-later",
+        "statementsTotal": 8,
+        "statementsCovered": 6,
+        "percentage": 75
+      },
+      {
+        "name": "soar-trading/components/pikaday-input",
+        "statementsTotal": 2,
+        "statementsCovered": 2,
+        "percentage": 100
+      },
+      {
+        "name": "soar-trading/components/position-row",
+        "statementsTotal": 22,
+        "statementsCovered": 13,
+        "percentage": 59.09
+      },
+      {
+        "name": "soar-trading/components/result-row",
+        "statementsTotal": 7,
+        "statementsCovered": 2,
+        "percentage": 28.57
+      },
+      {
+        "name": "soar-trading/components/working-order-row",
+        "statementsTotal": 7,
+        "statementsCovered": 3,
+        "percentage": 42.86
+      },
+      {
+        "name": "soar-trading/adapters/application",
+        "statementsTotal": 5,
+        "statementsCovered": 2,
+        "percentage": 40
+      },
+      {
+        "name": "soar-trading/controllers/account/search/deal",
+        "statementsTotal": 17,
+        "statementsCovered": 7,
+        "percentage": 41.18
+      },
+      {
+        "name": "soar-trading/models/account",
+        "statementsTotal": 6,
+        "statementsCovered": 2,
+        "percentage": 33.33
+      },
+      {
+        "name": "soar-trading/models/position",
+        "statementsTotal": 2,
+        "statementsCovered": 2,
+        "percentage": 100
+      },
+      {
+        "name": "soar-trading/models/workingorder",
+        "statementsTotal": 2,
+        "statementsCovered": 2,
+        "percentage": 100
+      },
+      {
+        "name": "soar-trading/routes/account/orders",
+        "statementsTotal": 8,
+        "statementsCovered": 7,
+        "percentage": 87.5
+      },
+      {
+        "name": "soar-trading/routes/account/overview",
+        "statementsTotal": 7,
+        "statementsCovered": 3,
+        "percentage": 42.86
+      },
+      {
+        "name": "soar-trading/routes/account/positions",
+        "statementsTotal": 13,
+        "statementsCovered": 6,
+        "percentage": 46.15
+      },
+      {
+        "name": "soar-trading/routes/account/search/deal",
+        "statementsTotal": 5,
+        "statementsCovered": 2,
+        "percentage": 40
+      },
+      {
+        "name": "soar-trading/serializers/position",
+        "statementsTotal": 7,
+        "statementsCovered": 2,
+        "percentage": 28.57
+      },
+      {
+        "name": "soar-trading/serializers/workingorder",
+        "statementsTotal": 7,
+        "statementsCovered": 2,
+        "percentage": 28.57
+      },
+      {
+        "name": "soar-trading/services/balance-service",
+        "statementsTotal": 8,
+        "statementsCovered": 8,
+        "percentage": 100
+      },
+      {
+        "name": "soar-trading/services/confirm-service",
+        "statementsTotal": 9,
+        "statementsCovered": 9,
+        "percentage": 100
+      },
+      {
+        "name": "soar-trading/services/deal-service",
+        "statementsTotal": 69,
+        "statementsCovered": 69,
+        "percentage": 100
+      },
+      {
+        "name": "soar-trading/services/pnl-service",
+        "statementsTotal": 8,
+        "statementsCovered": 8,
+        "percentage": 100
+      },
+      {
+        "name": "soar-trading/services/session-authenticator",
+        "statementsTotal": 24,
+        "statementsCovered": 24,
+        "percentage": 100
+      },
+      {
+        "name": "soar-trading/authenticators/application",
+        "statementsTotal": 9,
+        "statementsCovered": 2,
+        "percentage": 22.22
+      },
+      {
+        "name": "soar-trading/components/app-version",
+        "statementsTotal": 4,
+        "statementsCovered": 4,
+        "percentage": 100
+      },
+      {
+        "name": "soar-trading/components/ember-chart",
+        "statementsTotal": 2,
+        "statementsCovered": 2,
+        "percentage": 100
+      },
+      {
+        "name": "soar-trading/components/ember-notify/message",
+        "statementsTotal": 2,
+        "statementsCovered": 2,
+        "percentage": 100
+      },
+      {
+        "name": "soar-trading/components/notification-container",
+        "statementsTotal": 3,
+        "statementsCovered": 3,
+        "percentage": 100
+      },
+      {
+        "name": "soar-trading/components/notification-message",
+        "statementsTotal": 3,
+        "statementsCovered": 3,
+        "percentage": 100
+      },
+      {
+        "name": "soar-trading/components/pikaday-inputless",
+        "statementsTotal": 3,
+        "statementsCovered": 3,
+        "percentage": 100
+      },
+      {
+        "name": "soar-trading/controllers/array",
+        "statementsTotal": 2,
+        "statementsCovered": 2,
+        "percentage": 100
+      },
+      {
+        "name": "soar-trading/controllers/object",
+        "statementsTotal": 2,
+        "statementsCovered": 2,
+        "percentage": 100
+      },
+      {
+        "name": "soar-trading/helpers/and",
+        "statementsTotal": 7,
+        "statementsCovered": 5,
+        "percentage": 71.43
+      },
+      {
+        "name": "soar-trading/helpers/gt",
+        "statementsTotal": 7,
+        "statementsCovered": 5,
+        "percentage": 71.43
+      },
+      {
+        "name": "soar-trading/helpers/gte",
+        "statementsTotal": 7,
+        "statementsCovered": 5,
+        "percentage": 71.43
+      },
+      {
+        "name": "soar-trading/helpers/is-array",
+        "statementsTotal": 7,
+        "statementsCovered": 5,
+        "percentage": 71.43
+      },
+      {
+        "name": "soar-trading/helpers/lt",
+        "statementsTotal": 7,
+        "statementsCovered": 5,
+        "percentage": 71.43
+      },
+      {
+        "name": "soar-trading/helpers/lte",
+        "statementsTotal": 7,
+        "statementsCovered": 5,
+        "percentage": 71.43
+      },
+      {
+        "name": "soar-trading/helpers/not-eq",
+        "statementsTotal": 7,
+        "statementsCovered": 5,
+        "percentage": 71.43
+      },
+      {
+        "name": "soar-trading/helpers/not",
+        "statementsTotal": 7,
+        "statementsCovered": 5,
+        "percentage": 71.43
+      },
+      {
+        "name": "soar-trading/helpers/or",
+        "statementsTotal": 7,
+        "statementsCovered": 5,
+        "percentage": 71.43
+      },
+      {
+        "name": "soar-trading/helpers/xor",
+        "statementsTotal": 7,
+        "statementsCovered": 5,
+        "percentage": 71.43
+      },
+      {
+        "name": "soar-trading/session-stores/application",
+        "statementsTotal": 2,
+        "statementsCovered": 2,
+        "percentage": 100
+      }
+    ]
+  }
+}

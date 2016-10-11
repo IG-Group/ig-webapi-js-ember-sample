@@ -1,0 +1,43 @@
+<div class="panel panel-primary">
+	<div class="panel-body">
+		<h1>{{activeName}} - {{activeAccount}}</h1>
+		<table class="table">
+			<tbody>
+				<tr>
+					{{#each model as |item|}}
+					<td>
+						Funds:
+					</td>
+					<td class="price">
+						<strong>£{{item.FUNDS}}</strong>
+					</td>
+					<td>
+						Margin:
+					</td>
+					<td class="price">
+						<strong>£{{item.MARGIN}}</strong>
+					</td>
+					<td>
+						Equity:
+					</td>
+					<td class="price">
+						<strong>£{{item.EQUITY}}</strong>
+					</td>
+					<td>
+						Available:
+					</td>
+					<td class="price">
+						<strong>£{{item.AVAILABLE_TO_DEAL}}</strong>
+					</td>
+					<td>
+						PNL:
+					</td>
+					<td class="price">
+						<strong>£{{item.PNL}}</strong>
+					</td>
+					{{/each}}
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

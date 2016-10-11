@@ -1,0 +1,23 @@
+<div class="input-group input-group-spaced">
+  <span class="input-group-addon">Size:</span> {{input type="number" value=size class="form-control" placeholder="Please enter a size" step=0.1 min=0}}
+</div>
+<!--<div class="input-group input-group-spaced">
+  <span class="input-group-addon">Stop Type:</span>
+  <div class="radio contained">
+    <label class="radio-inline">
+      <input type="radio" name="optradio" checked>Normal
+    </label>
+    <label class="radio-inline">
+      <input type="radio" name="optradio">Trailing
+    </label>
+  </div>
+</div>
+<div class="input-group input-group-spaced">
+  <span class="input-group-addon">Stop: </span> {{input type="number" value=stop class="form-control" placeholder="Please enter a stop" step=0.1 min=0}}
+</div>
+<div class="input-group input-group-spaced">
+  <span class="input-group-addon">Limit: </span> {{input type="number" value=limit class="form-control" placeholder="Please enter a Limit" step=0.1 min=0}}
+</div>-->
+<div class="input-group input-group-spaced btn-block">
+  <button type="button" class="btn btn-success btn-block" disabled={{isDisabled}} {{action 'openPosition'}}>Submit</button>
+</div>

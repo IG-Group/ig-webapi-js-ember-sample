@@ -1,0 +1,39 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <div class="row">
+        <div class="collapse-group">
+          <div class="block">
+            <a class="navbar-brand blue" data-toggle="collapse" data-target="#viewdetails">IG Public API</a>
+          </div>
+          <div class="collapse white" id="viewdetails">
+            <h3>This example allows you to: </h3>
+            <ul>
+              <li>View Account details</li>
+              <li>View Positions and Working Orders</li>
+              <li>Close Positions and Working Orders</li>
+              <li>Search markets</li>
+              <li>Open Positions and Working Orders</li>
+              <li>Switch Accounts</li>
+              <li>View Watchlists</li>
+              <li>Delete Watchlists</li>
+              <li>Create Watchlists</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      {{navbar-members }}
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container-fluid -->
+</nav>

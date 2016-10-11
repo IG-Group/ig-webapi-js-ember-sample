@@ -1,0 +1,16 @@
+<div class="no-pad">
+  <div class="alert alert-info">
+    <p>
+      {{heart-beat}}
+    </p>
+  </div>
+</div>
+{{overview-list model=model}}
+<div class="btn-toolbar">
+	{{#link-to 'account.overview' tagName="button" class="btn btn-primary dropdown-toggle" }}My Account{{/link-to}}
+	{{#link-to 'account.positions' tagName="button" class="btn btn-primary dropdown-toggle" }}Open Positions{{/link-to}}
+	{{#link-to 'account.orders' tagName="button" class="btn btn-primary dropdown-toggle" }}Working Orders{{/link-to}}
+	{{#link-to 'account.search' tagName="button" class="btn btn-primary dropdown-toggle"}}Find markets{{/link-to}}
+</div>
+<hr />
+{{outlet}}

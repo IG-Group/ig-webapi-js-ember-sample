@@ -1,0 +1,11 @@
+{{#if session.isAuthenticated}}
+	<ul class="nav navbar-nav navbar-right">
+		<button {{action 'invalidateSession'}} class="btn btn-secondary navbar-btn" id="logout">Logout</button>
+	</ul>
+{{else}}
+	<ul class="nav navbar-nav navbar-right">
+		{{#link-to 'index' id="login" tagName="li" }}
+			<button class="btn btn-success navbar-btn">Login / Register</button>
+		{{/link-to}}
+	</ul>
+{{/if}}

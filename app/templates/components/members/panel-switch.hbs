@@ -1,0 +1,29 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+			<div class="panel panel-login">
+				<div class="panel-heading">
+					<div class="row text-center">
+						<div class="col-xs-12">
+							<a id="log" class="active">Login</a>
+						</div>
+					</div>
+					<hr>
+				</div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-lg-12">
+
+							{{yield}}
+
+						</div>
+					</div>
+					<hr>
+					<div id="signup-message" class="alert alert-warning text-center" role="alert">
+						To sign up please create an account at&nbsp;<a id="signup-link" href= {{signUpLink}} class="alert-link">{{signUpLink}}</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

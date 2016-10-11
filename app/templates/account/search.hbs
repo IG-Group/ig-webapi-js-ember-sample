@@ -1,0 +1,28 @@
+{{search-box search="search" viewWatchlist="viewWatchlist" viewWatchlistMarkets="viewWatchlistMarkets" updateWatchlists="updateWatchlists"}}
+{{#if model}}
+  <div class="col-md-8">
+    <table class="table table-hover" id="search_results_list">
+      <thead>
+        <tr>
+          <th>Status</th>
+          <th>Market</th>
+          <th>Expiry</th>
+          <th class="content">Bid</th>
+          <th class="content">Offer</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each model as |result|}}
+          {{result-row result=result deal="deal" watchlists=watchlists}}
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+{{else}}
+  <p class="text-center">
+    Results will appear here.
+  </p>
+{{/if}}
+<div class="col-md-4">
+  {{outlet}}
+</div>

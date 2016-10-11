@@ -1,0 +1,44 @@
+<div class="col-lg-12">
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<h3 class="panel-title"><strong>Open Positions</strong></h3>
+		</div>
+		<div class="panel-body">
+			<table class="table">
+				<thead>
+					<tr>
+						<td>
+							Market
+						</td>
+						<td>
+							Period
+						</td>
+						<td>
+							Size
+						</td>
+						<td>
+							Opening
+						</td>
+						<td>
+							Latest
+						</td>
+						<td>
+							Profit/Loss (GBP)
+						</td>
+						<td></td>
+					</tr>
+				</thead>
+				<tbody>
+					{{#each model as |item|}}
+						{{position-row item=item id=item.position.dealId close="close"}}
+						{{else}}
+							<td colspan="8" class="alert alert-warning col-sm-8 text-center">
+								You have no Open Positions. Head to
+								{{#link-to 'account.search' tagName="a" }}Search and Deal{{/link-to}} and make some!
+							</td>
+					{{/each}}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

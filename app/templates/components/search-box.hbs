@@ -1,0 +1,40 @@
+<div class="jumbotron search col-md-12">
+  <h2>Please enter a search term</h2>
+  <div class="row">
+    <div id="custom-search-input">
+      <div class="input-group col-md-12">
+        {{input type="text" value=market class="search-query form-control" placeholder="Search" key-up="search"}}
+        <span class="input-group-btn">
+          <button class="btn btn-danger search" type="button">
+            <span class="glyphicon glyphicon-search"></span>
+        <button type="button" class="btn btn-success watchlists-button" {{action "viewWatchlist"}}>Watchlists</button>
+        <button type="button" class="btn btn-success watchlists-button" {{action "toggleEdit"}}>+</button>
+        </button>
+        </span>
+      </div>
+    </div>
+  </div>
+  {{#if isEditing}}
+  <div class="row">
+        <span class="input-group-btn">
+    {{input type="text" value=newWatchlistName class="search-query form-control inline-block" placeholder="New Watchlist"}}
+    <span class="input-group-btn watchlist">
+    <button type="button" class="btn btn-success watchlist_buttons" {{action "createWatchlist"}}><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
+    <button type="button" class="btn btn-success watchlist_buttons" {{action "toggleEdit"}}><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+  </span>
+    </span>
+  </div>
+  {{/if}}
+</div>
+{{#if showWatchlists}}
+  <div class="list-group flex-con">
+    {{#each watchlists as |list|}}
+      <a class="list-group-item flexable" {{action "viewWatchlistMarkets" list.id}}>
+        {{list.name}}
+        {{#if list.deleteable}}
+          <button type="button" class="btn btn-danger btn-xs pull-right" {{action 'deleteWatchlist' list.id}}>Delete</button>
+        {{/if}}
+      </a>
+    {{/each}}
+  </div>
+{{/if}}
