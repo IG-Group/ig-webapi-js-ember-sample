@@ -1,8 +1,7 @@
-# Soar-trading
+# IG Web API Javascript NodeJS Ember Sample
+[![Build Status](https://travis-ci.org/IG-Group/ig-webapi-js-ember-sample.svg?branch=master)](https://travis-ci.org/IG-Group/ig-webapi-js-ember-sample)
 
-IG Web API Javascript Sample
-
-Simple Javascript application enabling users to login via the IG REST API, receive updates via Lightstreamer, load market data, etc.
+Ember and NodeJS web application enabling users to login via the IG REST API, receive updates via Lightstreamer, load market data, etc.
 
 API reference: [http://labs.ig.com/](http://labs.ig.com/)
 
