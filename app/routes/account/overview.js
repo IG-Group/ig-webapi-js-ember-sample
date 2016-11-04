@@ -42,11 +42,12 @@ export default Ember.Route.extend({
    * @param {data}
    *
    */
-  onSwitch(id, response, status, data) {
-    this.set('session.session.content.authenticated.currentAccountId', id);
-    this.set('session.session.content.authenticated.ssoToken', data.getResponseHeader('X-SECURITY-TOKEN'));
-    this.get('lsClient').restart(true);
-  },
+   onSwitch(id, response, status, data) {
+     this.set('session.session.content.authenticated.currentAccountId', id);
+     const securityToken = data.getResponseHeader('X-SECURITY-TOKEN').split(',');
+     this.set('session.session.content.authenticated.ssoToken', securityToken[0]);
+     this.get('lsClient').restart(true);
+   },
 
   actions: {
     /*
