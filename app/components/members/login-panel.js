@@ -13,7 +13,7 @@ export default Ember.Component.extend({
    * @public
    * @array
    */
-  environments: Ember.String.w('Demo Production'),
+  environments: Ember.String.w('Demo Production Mirage'),
 
   selectedEnvironemnt: 'Demo',
 
