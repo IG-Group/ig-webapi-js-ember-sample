@@ -23,8 +23,11 @@ export default Ember.Component.extend({
   formatUsername: Ember.computed('username', 'selectedEnvironemnt', function() {
     if (this.get('selectedEnvironemnt') === 'Demo') {
       return `DEMO-${this.get('username').toUpperCase()}-LIVE`;
+    } else if (this.get('selectedEnvironemnt') === 'Demo') {
+      return `${this.get('username').toUpperCase()}-LIVE`;
+    } else {
+      return `${this.get('username').toUpperCase()}-MIRAGE`;
     }
-    return `${this.get('username').toUpperCase()}-LIVE`;
   }),
 
   password: '',

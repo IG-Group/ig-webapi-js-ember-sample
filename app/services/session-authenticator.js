@@ -34,13 +34,23 @@ export default Ember.Service.extend({
 		}, this.handleAuthRejection.bind(this, reject));
 	},
 
+  getApiHost(env) {
+    if (env === 'Demo') {
+      return 'https://demo-api.ig.com/gateway/deal';
+    } else if (env === 'Production') {
+      return 'https://api.ig.com/gateway/deal';
+    } else {
+      return 'https://mirage.ig.com/gateway/deal';
+    }
+  },
+
   /*
    * Creates headers for login AJAX call
    * @public
    * @param {Object} authData
    */
 	getRequestHeaders(authData) {
-    let apiHost = (authData.selectedEnvironemnt === 'Demo') ? 'https://demo-api.ig.com/gateway/deal' : 'https://api.ig.com/gateway/deal';
+    let apiHost = this.getApiHost(authData.selectedEnvironemnt);
 		let requestHeaders = {
 			dataType: 'json',
 			type:  'POST',
@@ -93,7 +103,7 @@ export default Ember.Service.extend({
 		let cst = jqXHR.getResponseHeader('CST');
 		let sso = jqXHR.getResponseHeader('X-SECURITY-TOKEN');
     // Server to retrieve data from
-    let apiHost = (authData.selectedEnvironemnt === 'Demo') ? 'https://demo-api.ig.com/gateway/deal' : 'https://api.ig.com/gateway/deal';
+    let apiHost = this.getApiHost(authData.selectedEnvironemnt);
 		localStorage.setItem('api', authData.api);
 		let responseData = {
 			apiHost: apiHost,
