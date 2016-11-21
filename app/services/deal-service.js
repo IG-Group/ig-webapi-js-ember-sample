@@ -11,6 +11,13 @@
    session: Ember.inject.service('session'),
 
    /*
+    * rest service
+    * @public
+    * @{service}
+    */
+   rest: Ember.inject.service('rest'),
+
+   /*
     * AJAX call to close a position
     * @public
     * @param {Object} postion - Positon Object you want to close
