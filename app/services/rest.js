@@ -66,8 +66,8 @@ const restService = Ember.Service.extend({
    * @param {Object} - optional headers to pass through to ajax call
    * @return {Object}
    */
-  appendHeaders(options) {
-    return Object.assign(this.get('headers'), options);
+  appendHeaders(options = {}) {
+    return Object.assign(options, this.get('headers'));
   }
 
 });
