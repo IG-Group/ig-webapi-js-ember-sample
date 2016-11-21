@@ -10,6 +10,8 @@ export default Ember.Service.extend({
    */
   session: Ember.inject.service('session'),
 
+  rest: Ember.inject.service('rest'),
+
   /*
    * AJAX call to switch accounts
    * @public
@@ -17,31 +19,13 @@ export default Ember.Service.extend({
    * @param {Object} callback - method to call when AJAX call returns
    */
   switch (id, callback) {
-    const session = this.get('session');
-    const apiHost = session.session.content.authenticated.apiHost;
-    let req = {};
-    req.url = `${apiHost}/session`;
-    req.headers = {
-      "Content-Type": "application/json; charset=UTF-8",
-      "Accept": "application/json; charset=UTF-8",
-      "X-IG-API-KEY": session.session.content.authenticated.api,
-      "CST": session.session.content.authenticated.cstToken,
-      "X-SECURITY-TOKEN": session.session.content.authenticated.ssoToken,
-      "Version": 1,
-    };
-
-    const bodyParams = {
+    const data = {
       "accountId": id,
       "defaultAccount": "true"
     };
-    req.body = JSON.stringify(bodyParams);
 
-    Ember.$.ajax({
-      type: 'PUT',
-      url: req.url,
-      data: req.body,
-      headers: req.headers,
-      async: false,
+    this.get('rest').doPut('/session', JSON.stringify(data), {
+      'version': 1
     }).then(function(response, status, data) {
       callback(id, ...arguments);
     });
@@ -116,7 +100,7 @@ export default Ember.Service.extend({
    * @param {String} name - Name of watchlist
    * @param {Object} callback - method to call when AJAX call returns
    */
-  createWatchlist (name, callback) {
+  createWatchlist(name, callback) {
     const session = this.get('session');
     const apiHost = session.session.content.authenticated.apiHost;
     let req = {};
