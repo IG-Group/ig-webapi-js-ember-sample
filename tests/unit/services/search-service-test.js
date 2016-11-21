@@ -1,65 +1,60 @@
 /* jshint expr:true */
 import {
-  expect
-} from 'chai';
-import {
   describeModule,
   it
 } from 'ember-mocha';
-import sinon from'sinon';
+import sinon from 'sinon';
 
 describeModule(
   'service:search-service',
-  'SearchServiceService', {},
+  'SearchServiceService', {
+    needs: ['service:rest', 'service:session']
+  },
   function() {
     const session = {
-      session: {
-        content: {
-          authenticated: {
-            api: 'demo',
-            cstToken: 'mockCst',
-            ssoToken: 'mockSso'
-          }
+      content: {
+        authenticated: {
+          api: 'demo',
+          cstToken: 'mockCst',
+          ssoToken: 'mockSso'
         }
       }
     };
 
     it('calls search endpoint', sinon.test(function() {
+      var sessionService = this.container.lookup('service:session');
+      sessionService.session = session;
+
       let service = this.subject();
-      service.session = session;
 
-      const ajax = this.spy($, 'ajax');
-
-      service.search('FTSE', true);
+      const ajax = this.stub($, 'ajax').returns({
+        then(fn) {
+          fn({
+            success: true
+          }, true, true);
+        },
+        catch (fn) {
+          console.log(fn);
+        }
+      });
+      service.search('FTSE', function() {});
       sinon.assert.calledOnce(ajax);
     }));
 
-
-    it('set the correct headers for the ajax call', sinon.test(function() {
-      let service = this.subject();
-      service.session = session;
-      let headers = {
-        "Content-Type": "application/json; charset=UTF-8",
-        "Accept": "application/json; charset=UTF-8",
-        "X-IG-API-KEY": 'demo',
-        "CST": 'mockCst',
-        "X-SECURITY-TOKEN": 'mockSso',
-      };
-
-      const ajax = this.spy($, 'ajax');
-
-      service.search('FTSE', true);
-      expect((ajax.getCall(0).args[0]).headers).to.deep.equal(headers);
-    }));
-
     it('calls the callback', sinon.test(function() {
+      var sessionService = this.container.lookup('service:session');
+      sessionService.session = session;
+
       let service = this.subject();
-      service.session = session;
+
       this.stub($, 'ajax').returns({
         then(fn) {
           fn({
-            dealReference: 'QWEQWE'
+            success: true
           }, true, true);
+        },
+        catch (fn) {
+          console.log(fn);
         }
       });
       let call = sinon.spy();

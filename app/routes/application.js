@@ -18,20 +18,6 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
   lsClient: Ember.inject.service('ls-client'),
 
   /*
-   * Sets up window listener to invalidate seesion when the window is closed
-   * @public
-   */
-  activate: function() {
-    const _this = this;
-
-    Ember.$(window).on('beforeunload', () => {
-      if (_this.get('session.isAuthenticated')) {
-        _this.get('session').invalidate();
-      }
-    });
-  },
-
-  /*
    * If session is authenticated move to the account route
    * @public
    */

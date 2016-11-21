@@ -11,41 +11,31 @@ export default Ember.Service.extend({
   session: Ember.inject.service('session'),
 
   /*
+   * rest service
+   * @public
+   * @{service}
+   */
+  rest: Ember.inject.service('rest'),
+
+  /*
    * AJAX call to switch accounts
    * @public
    * @param {String} id - Account Id to switch to
    * @param {Object} callback - method to call when AJAX call returns
    */
   switch (id, callback) {
-    const session = this.get('session');
-    const apiHost = session.session.content.authenticated.apiHost;
-    let req = {};
-    req.url = `${apiHost}/session`;
-    req.headers = {
-      "Content-Type": "application/json; charset=UTF-8",
-      "Accept": "application/json; charset=UTF-8",
-      "X-IG-API-KEY": session.session.content.authenticated.api,
-      "CST": session.session.content.authenticated.cstToken,
-      "X-SECURITY-TOKEN": session.session.content.authenticated.ssoToken,
-      "Version": 1,
-    };
-
-    const bodyParams = {
+    const data = {
       "accountId": id,
       "defaultAccount": "true"
     };
-    req.body = JSON.stringify(bodyParams);
 
-    Ember.$.ajax({
-      type: 'PUT',
-      url: req.url,
-      data: req.body,
-      headers: req.headers,
-      async: false,
+    this.get('rest').doPut('/session', JSON.stringify(data), {
+      'version': 1
     }).then(function(response, status, data) {
       callback(id, ...arguments);
     });
   },
+
   /*
    * AJAX retrieve watchlists. With no id passed through array of watchlists is
    * returned. With a watchlist ID the marekts within the list is returned.
@@ -54,25 +44,9 @@ export default Ember.Service.extend({
    * @param {Object} callback - method to call when AJAX call returns
    */
   getWatchLists(id, callback) {
-    const session = this.get('session');
-    const apiHost = session.session.content.authenticated.apiHost;
-    let req = {};
-    req.url = id ? `${apiHost}/watchlists/${id}` : `${apiHost}/watchlists`;
-    req.headers = {
-      "Content-Type": "application/json; charset=UTF-8",
-      "Accept": "application/json; charset=UTF-8",
-      "X-IG-API-KEY": session.session.content.authenticated.api,
-      "CST": session.session.content.authenticated.cstToken,
-      "X-SECURITY-TOKEN": session.session.content.authenticated.ssoToken,
-      "Version": 1,
-    };
-
-    Ember.$.ajax({
-      type: 'GET',
-      url: req.url,
-      data: null,
-      headers: req.headers,
-      async: false,
+    const url = id ? `/watchlists/${id}` : `/watchlists`;
+    this.get('rest').doGet(`${url}`, null, {
+      'version': 1
     }).then(function(response, status, data) {
       callback(response);
     });
@@ -85,26 +59,9 @@ export default Ember.Service.extend({
    * @param {Object} callback - method to call when AJAX call returns
    */
   deleteWatchlist(id, callback) {
-    const session = this.get('session');
-    const apiHost = session.session.content.authenticated.apiHost;
-    let req = {};
-    req.url = `${apiHost}/watchlists/${id}`;
-    req.headers = {
-      "Content-Type": "application/json; charset=UTF-8",
-      "Accept": "application/json; charset=UTF-8",
-      "X-IG-API-KEY": session.session.content.authenticated.api,
-      "CST": session.session.content.authenticated.cstToken,
-      "X-SECURITY-TOKEN": session.session.content.authenticated.ssoToken,
-      "Version": 1,
-      "_method": "DELETE",
-    };
-
-    Ember.$.ajax({
-      type: 'GET',
-      url: req.url,
-      data: null,
-      headers: req.headers,
-      async: false,
+    this.get('rest').doGet(`/watchlists/${id}`, null, {
+      'version': 1,
+      "_method": "DELETE"
     }).then(function(response, status, data) {
       callback(response);
     });
@@ -116,31 +73,13 @@ export default Ember.Service.extend({
    * @param {String} name - Name of watchlist
    * @param {Object} callback - method to call when AJAX call returns
    */
-  createWatchlist (name, callback) {
-    const session = this.get('session');
-    const apiHost = session.session.content.authenticated.apiHost;
-    let req = {};
-    req.url = `${apiHost}/watchlists`;
-    req.headers = {
-      "Content-Type": "application/json; charset=UTF-8",
-      "Accept": "application/json; charset=UTF-8",
-      "X-IG-API-KEY": session.session.content.authenticated.api,
-      "CST": session.session.content.authenticated.cstToken,
-      "X-SECURITY-TOKEN": session.session.content.authenticated.ssoToken,
-      "Version": 1,
-    };
-
-    const bodyParams = {
+  createWatchlist(name, callback) {
+    const data = {
       "name": name,
     };
-    req.body = JSON.stringify(bodyParams);
 
-    Ember.$.ajax({
-      type: 'POST',
-      url: req.url,
-      data: req.body,
-      headers: req.headers,
-      async: false,
+    this.get('rest').doPost(`/watchlists`, JSON.stringify(data), {
+      'version': 1,
     }).then(function(response, status, data) {
       callback(response);
     });
@@ -154,30 +93,13 @@ export default Ember.Service.extend({
    * @param {Object} callback - method to call when AJAX call returns
    */
   addToWatchList(epic, watchlistId, callback) {
-    const session = this.get('session');
-    const apiHost = session.session.content.authenticated.apiHost;
-    let req = {};
-    req.url = `${apiHost}/watchlists/${watchlistId}`;
-    req.headers = {
-      "Content-Type": "application/json; charset=UTF-8",
-      "Accept": "application/json; charset=UTF-8",
-      "X-IG-API-KEY": session.session.content.authenticated.api,
-      "CST": session.session.content.authenticated.cstToken,
-      "X-SECURITY-TOKEN": session.session.content.authenticated.ssoToken,
-      "Version": 1,
-    };
 
-    const bodyParams = {
+    const data = {
       "epic": epic,
     };
-    req.body = JSON.stringify(bodyParams);
 
-    Ember.$.ajax({
-      type: 'PUT',
-      url: req.url,
-      data: req.body,
-      headers: req.headers,
-      async: false,
+    this.get('rest').doPut(`/watchlists/${watchlistId}`, JSON.stringify(data), {
+      'version': 1,
     }).then(function(response, status, data) {
       callback(response);
     });

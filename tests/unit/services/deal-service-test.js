@@ -10,16 +10,16 @@ import sinon from 'sinon';
 
 describeModule(
   'service:deal-service',
-  'DealServiceService', {},
+  'DealServiceService', {
+    needs: ['service:rest', 'service:session']
+  },
   function() {
     const session = {
-      session: {
-        content: {
-          authenticated: {
-            api: 'demo',
-            cstToken: 'mockCst',
-            ssoToken: 'mockSso'
-          }
+      content: {
+        authenticated: {
+          api: 'demo',
+          cstToken: 'mockCst',
+          ssoToken: 'mockSso'
         }
       }
     };
@@ -31,53 +31,103 @@ describeModule(
     const mockDealId = 'ABCABC';
 
     it('calls otc endpoint', sinon.test(function() {
+      var sessionService = this.container.lookup('service:session');
+      sessionService.session = session;
+
       let service = this.subject();
-      service.session = session;
 
-      const ajax = this.spy($, 'ajax');
+      const ajax = this.stub($, 'ajax').returns({
+        then(fn) {
+          fn({
+            success: true
+          }, true, true);
+        },
+        catch (fn) {
+          console.log(fn);
+        }
+      });
 
-      service.closePosition(mockPosition, mockSize);
+      service.closePosition(mockPosition, mockSize, function() {});
       sinon.assert.calledOnce(ajax);
     }));
 
     it('selects the correct close direction when original was buy', sinon.test(function() {
+      var sessionService = this.container.lookup('service:session');
+      sessionService.session = session;
+
       let service = this.subject();
-      service.session = session;
 
-      const ajax = this.spy($, 'ajax');
+      const ajax = this.stub($, 'ajax').returns({
+        then(fn) {
+          fn({
+            success: true
+          }, true, true);
+        },
+        catch (fn) {
+          console.log(fn);
+        }
+      });
 
-      service.closePosition(mockPosition, mockSize);
+      service.closePosition(mockPosition, mockSize, function() {});
       expect(JSON.parse(ajax.getCall(0).args[0].data).direction).to.be.equal('SELL');
     }));
 
     it('selects the correct close direction when original was Sell', sinon.test(function() {
-      let service = this.subject();
-      service.session = session;
+      var sessionService = this.container.lookup('service:session');
+      sessionService.session = session;
 
-      const ajax = this.spy($, 'ajax');
+      let service = this.subject();
+
+      const ajax = this.stub($, 'ajax').returns({
+        then(fn) {
+          fn({
+            success: true
+          }, true, true);
+        },
+        catch (fn) {
+          console.log(fn);
+        }
+      });
       mockPosition.direction = 'SELL';
-      service.closePosition(mockPosition, mockSize);
+      service.closePosition(mockPosition, mockSize, function() {});
       expect(JSON.parse(ajax.getCall(0).args[0].data).direction).to.be.equal('BUY');
     }));
 
     it('calls WO endpoint', sinon.test(function() {
+      var sessionService = this.container.lookup('service:session');
+      sessionService.session = session;
+
       let service = this.subject();
-      service.session = session;
 
-      const ajax = this.spy($, 'ajax');
+      const ajax = this.stub($, 'ajax').returns({
+        then(fn) {
+          fn({
+            success: true
+          }, true, true);
+        },
+        catch (fn) {
+          console.log(fn);
+        }
+      });
 
-      service.closeOrder(mockDealId);
+      service.closeOrder(mockDealId, function() {});
       sinon.assert.calledOnce(ajax);
     }));
 
     it('calls the callback when closing a position', sinon.test(function() {
+      var sessionService = this.container.lookup('service:session');
+      sessionService.session = session;
+
       let service = this.subject();
-      service.session = session;
+
       this.stub($, 'ajax').returns({
         then(fn) {
           fn({
-            dealReference: 'QWEQWE'
+            success: true
           }, true, true);
+        },
+        catch (fn) {
+          console.log(fn);
         }
       });
       let call = sinon.spy();
@@ -87,13 +137,19 @@ describeModule(
     }));
 
     it('calls the callback when closing a WO', sinon.test(function() {
+      var sessionService = this.container.lookup('service:session');
+      sessionService.session = session;
+
       let service = this.subject();
-      service.session = session;
+
       this.stub($, 'ajax').returns({
         then(fn) {
           fn({
-            dealReference: 'QWEQWE'
+            success: true
           }, true, true);
+        },
+        catch (fn) {
+          console.log(fn);
         }
       });
       let call = sinon.spy();
@@ -103,13 +159,19 @@ describeModule(
     }));
 
     it('calls the callback when opening a position', sinon.test(function() {
+      var sessionService = this.container.lookup('service:session');
+      sessionService.session = session;
+
       let service = this.subject();
-      service.session = session;
+
       this.stub($, 'ajax').returns({
         then(fn) {
           fn({
-            dealReference: 'QWEQWE'
+            success: true
           }, true, true);
+        },
+        catch (fn) {
+          console.log(fn);
         }
       });
       let call = sinon.spy();
@@ -124,13 +186,19 @@ describeModule(
     }));
 
     it('calls the callback when opening a WO', sinon.test(function() {
+      var sessionService = this.container.lookup('service:session');
+      sessionService.session = session;
+
       let service = this.subject();
-      service.session = session;
+
       this.stub($, 'ajax').returns({
         then(fn) {
           fn({
-            dealReference: 'QWEQWE'
+            success: true
           }, true, true);
+        },
+        catch (fn) {
+          console.log(fn);
         }
       });
       let call = sinon.spy();
