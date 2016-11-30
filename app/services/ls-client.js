@@ -69,6 +69,10 @@ export default Ember.Service.extend({
    */
 	serverError(errorCode, errorMessage) {
 		console.log('Lightstreamer connection status:' + errorMessage);
+    if (errorCode === 1) {
+      localStorage.removeItem('lsClient');
+      this.get('session').invalidate();
+    }
 		this.restart();
 	},
 
